@@ -1,6 +1,5 @@
 package com.Narugh14.API.medico;
 
-import com.Narugh14.API.direccion.DatosDireccion;
 import com.Narugh14.API.direccion.Direccion;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +7,6 @@ import lombok.*;
 @Table(name = "medicos")
 @Entity(name = "Medico")
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Medico {
@@ -32,5 +30,34 @@ public class Medico {
          this.documento = datos.documento();
          this.especialidad = datos.especialidad();
          this.direccion = new Direccion(datos.direccion());
+    }
+    public  Medico(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
     }
 }
