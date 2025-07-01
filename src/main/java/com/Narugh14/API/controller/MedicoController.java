@@ -38,4 +38,10 @@ public class MedicoController {
         medico.actualizarInformacionMedico(datos);
 
     }
+
+    @Transactional
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id){
+        medicoRepository.deleteById(id);
+    }
 }
