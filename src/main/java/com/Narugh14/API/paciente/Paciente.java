@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "pacientes")
 @Entity(name = "Paciente")
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Paciente {
@@ -33,5 +32,32 @@ public class Paciente {
         this.telefono = datos.telefono();
         this.documento = datos.documento();
         this.direccion = new Direccion(datos.direccion());
+    }
+
+    public Paciente() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
     }
 }
