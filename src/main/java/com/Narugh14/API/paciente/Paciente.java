@@ -60,4 +60,16 @@ public class Paciente {
     public Direccion getDireccion() {
         return direccion;
     }
+
+    public void actualizarInformacionPaciente(@Valid DatosActualizarPaciente datos) {
+        if(datos.nombre() != null){
+            this.nombre = datos.nombre();
+        }
+        if(datos.telefono() != null){
+            this.telefono = datos.telefono();
+        }
+        if(datos.direccion() != null){
+            this.direccion.actualizarDireccion(datos.direccion());
+        }
+    }
 }

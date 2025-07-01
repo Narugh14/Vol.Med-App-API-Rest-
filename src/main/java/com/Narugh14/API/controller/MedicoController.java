@@ -36,6 +36,6 @@ public class MedicoController {
     public void actualizar(@RequestBody @Valid DatosActualizarMedico datos){
         var medico = medicoRepository.getReferenceById(datos.id());
         medico.actualizarInformacionMedico(datos);
-        
+
     }
 }
