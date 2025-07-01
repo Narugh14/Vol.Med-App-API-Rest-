@@ -2,6 +2,7 @@ package com.Narugh14.API.medico;
 
 import com.Narugh14.API.direccion.Direccion;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 @Table(name = "medicos")
@@ -59,5 +60,17 @@ public class Medico {
 
     public Direccion getDireccion() {
         return direccion;
+    }
+
+    public void actualizarInformacionMedico(@Valid DatosActualizarMedico datos) {
+        if(datos.nombre() != null){
+            this.nombre = datos.nombre();
+        }
+         if(datos.telefono() != null){
+            this.telefono = datos.telefono();
+         }
+         if(datos.direccion() != null){
+            this.direccion.actualizarDireccion(datos.direccion());
+         }
     }
 }

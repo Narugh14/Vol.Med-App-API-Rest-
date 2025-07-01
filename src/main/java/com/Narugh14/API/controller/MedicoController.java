@@ -1,9 +1,6 @@
 package com.Narugh14.API.controller;
 
-import com.Narugh14.API.medico.DatosListaMedico;
-import com.Narugh14.API.medico.DatosRegistroMedico;
-import com.Narugh14.API.medico.IMedicoRepository;
-import com.Narugh14.API.medico.Medico;
+import com.Narugh14.API.medico.*;
 import jakarta.validation.Valid;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +29,13 @@ public class MedicoController {
     public Page<DatosListaMedico> listar(@PageableDefault(size=10, sort = {"nombre"}) Pageable paginacion){
         return medicoRepository.findAll(paginacion)
                 .map(DatosListaMedico::new);
+    }
+
+    @Transactional
+    @PutMapping
+    public void actualizar(@RequestBody @Valid DatosActualizarMedico datos){
+        var medico = medicoRepository.getReferenceById(datos.id());
+        medico.actualizarInformacionMedico(datos);
+        
     }
 }
