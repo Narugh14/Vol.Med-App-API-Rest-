@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record DatosActualizarMedico(
-        Long id,
+        @NotNull  Long id,
         String nombre,
         String telefono,
         DatosDireccion direccion
