@@ -1,6 +1,6 @@
 package com.Narugh14.API.controller;
 
-import com.Narugh14.API.paciente.*;
+import com.Narugh14.API.domain.paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
