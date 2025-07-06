@@ -1,6 +1,6 @@
-package com.Narugh14.API.paciente;
+package com.Narugh14.API.domain.paciente;
 
-import com.Narugh14.API.direccion.DatosDireccion;
+import com.Narugh14.API.domain.direccion.DatosDireccion;
 import jakarta.validation.constraints.NotNull;
 
 public record DatosActualizarPaciente(

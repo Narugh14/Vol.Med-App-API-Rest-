@@ -1,11 +1,8 @@
-package com.Narugh14.API.direccion;
+package com.Narugh14.API.domain.direccion;
 
 import jakarta.persistence.Embeddable;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 
 @Getter

@@ -1,38 +1,40 @@
-package com.Narugh14.API.medico;
+package com.Narugh14.API.domain.paciente;
 
-import com.Narugh14.API.direccion.Direccion;
+
+import com.Narugh14.API.domain.direccion.Direccion;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @Getter
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
+public class Paciente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private  Long id;
     private String nombre;
     private String email;
     private String telefono;
     private String documento;
-    @Enumerated(EnumType.STRING)
-    private Especialidad especialidad;
     @Embedded
     private Direccion direccion;
 
-    public Medico(DatosRegistroMedico datos) {
-         this.id = null;
-         this.nombre = datos.nombre();
-         this.email = datos.email();
-         this.telefono = datos.telefono();
-         this.documento = datos.documento();
-         this.especialidad = datos.especialidad();
-         this.direccion = new Direccion(datos.direccion());
+    public Paciente(@Valid DatosRegistroPaciente datos) {
+        this.nombre = datos.nombre();
+        this.email = datos.email();
+        this.telefono = datos.telefono();
+        this.documento = datos.documento();
+        this.direccion = new Direccion(datos.direccion());
     }
-    public  Medico(){}
+
+    public Paciente() {
+    }
 
     public Long getId() {
         return id;
@@ -54,23 +56,19 @@ public class Medico {
         return documento;
     }
 
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
-
     public Direccion getDireccion() {
         return direccion;
     }
 
-    public void actualizarInformacionMedico(@Valid DatosActualizarMedico datos) {
+    public void actualizarInformacionPaciente(@Valid DatosActualizarPaciente datos) {
         if(datos.nombre() != null){
             this.nombre = datos.nombre();
         }
-         if(datos.telefono() != null){
+        if(datos.telefono() != null){
             this.telefono = datos.telefono();
-         }
-         if(datos.direccion() != null){
+        }
+        if(datos.direccion() != null){
             this.direccion.actualizarDireccion(datos.direccion());
-         }
+        }
     }
 }

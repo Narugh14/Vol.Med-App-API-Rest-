@@ -1,6 +1,8 @@
-package com.Narugh14.API.direccion;
+package com.Narugh14.API.domain.direccion;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record DatosDireccion(

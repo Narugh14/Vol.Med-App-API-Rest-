@@ -1,4 +1,4 @@
-package com.Narugh14.API.medico;
+package com.Narugh14.API.domain.medico;
 
 public record DatosListaMedico(
         Long id,

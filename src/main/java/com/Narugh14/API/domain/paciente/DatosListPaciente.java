@@ -1,4 +1,4 @@
-package com.Narugh14.API.paciente;
+package com.Narugh14.API.domain.paciente;
 
 public record DatosListPaciente(
         Long id,

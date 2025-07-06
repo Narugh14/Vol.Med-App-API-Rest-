@@ -1,6 +1,6 @@
-package com.Narugh14.API.medico;
+package com.Narugh14.API.domain.medico;
 
-import com.Narugh14.API.direccion.DatosDireccion;
+import com.Narugh14.API.domain.direccion.DatosDireccion;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
